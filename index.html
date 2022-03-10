@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+        <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+
+        <!-- All of the lines just below were verbatim pasted from fonts.google.com. Remember how this works re: font weights, etc. -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="assets/css/style.css"> <!--always put this line after fonts because of how things load-->
+
+        <title>Frontend Mentor | Time tracking dashboard</title>
+    </head>
+    <body>
+        <div id="app">
+            <main>
+                <header>
+                    <ul class="header-list-1">
+                        <li>
+                            <img src="assets/img/image-jeremy.png" alt="picture of person who is subject of report">
+                        </li>
+                        <li>
+                            <p>Report for</p>
+                            <p>Jeremy <span>Robson</span></p>
+                        </li>        
+                    </ul>
+                    <ul class="header-list-2">
+                        <li><button class="daily-button time-period-btn active">Daily</button></li> <!-- note that the 'active' class is just here to reference in CSS and JS to present the 'daily' data upon load of page -->
+                        <li><button class="time-period-btn">Weekly</button></li>
+                        <li><button class="time-period-btn">Monthly</button></li>
+                    </ul>
+                </header>
+                <section class="work card" data-label="Work"> <!-- 'data-label' is an attribute. The developer chooses the "label" part of it. These are the relevant MDNs: https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset and https://developer.mozilla.org/en-US/docs/Learn/HTML/Howto/Use_data_attributes. -->
+                    <div class="for-background-image"></div>
+                    <div class="activity-list">
+                        <ul class="activity-list-ul-1">
+                            <li>Work</li>
+                            <li>
+                                <button>
+                                    <!-- Why am I embedding this <svg> tag (taken from the svg image file and then edited in order to change size) instead of just using a regular <img> tag with 'assets/img/...'? So that I can access the svg's 'path' tag and change its 'fill' attribute in my CSS file. -->
+                                    <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                                        <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="activity-list-ul-2">
+                            <li><span class="hours-current">0</span>hrs</li>
+                            <li><span class="previous-period">--------</span> - <span class="hours-previous">0</span>hrs</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="play card" data-label="Play">
+                    <div class="for-background-image"></div>
+                    <div class="activity-list">
+                        <ul class="activity-list-ul-1">
+                            <li>Play</li>
+                            <li>
+                                <button>
+                                    <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                                        <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="activity-list-ul-2">
+                            <li><span class="hours-current">0</span>hrs</li>
+                            <li><span class="previous-period">--------</span> - <span class="hours-previous">0</span>hrs</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="study card" data-label="Study">
+                    <div class="for-background-image"></div>
+                    <div class="activity-list">
+                        <ul class="activity-list-ul-1">
+                            <li>Study</li>
+                            <li>
+                                <button>
+                                    <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                                        <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="activity-list-ul-2">
+                            <li><span class="hours-current">0</span>hrs</li>
+                            <li><span class="previous-period">--------</span> - <span class="hours-previous">0</span>hrs</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="exercise card" data-label="Exercise">
+                    <div class="for-background-image"></div>
+                    <div class="activity-list">
+                        <ul class="activity-list-ul-1">
+                            <li>Exercise</li>
+                            <li>
+                                <button>
+                                    <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                                        <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="activity-list-ul-2">
+                            <li><span class="hours-current">0</span>hrs</li>
+                            <li><span class="previous-period">--------</span> - <span class="hours-previous">0</span>hrs</li>
+                        </ul>
+                    </div>
+                </section>
+                <section class="social card" data-label="Social">
+                    <div class="for-background-image"></div>
+                    <div class="activity-list">
+                        <ul class="activity-list-ul-1">
+                            <li>Social</li>
+                            <li>
+                                <button>
+                                    <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                                        <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="activity-list-ul-2">
+                            <li><span class="hours-current">0</span>hrs</li>
+                            <li><span class="previous-period">--------</span> - <span class="hours-previous">0</span>hrs</li>
+                        </ul> 
+                    </div>
+                </section>
+                <section class="self-care card" data-label="Self Care">
+                    <div class="for-background-image"></div>
+                    <div class="activity-list">
+                        <ul class="activity-list-ul-1">
+                            <li>Self Care</li>
+                            <li>
+                                <button>
+                                    <svg width="28" height="auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 5">
+                                        <path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/>
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                        <ul class="activity-list-ul-2">
+                            <li><span class="hours-current">0</span>hrs</li>
+                            <li><span class="previous-period">--------</span> - <span class="hours-previous">0</span>hrs</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div> <!-- Note: I put this here instead of below <footer> (like normal) because of how the CSS already was from my non-Vue version. I didn't want to have to mess with the styling too much since my goal is to use this version to practice Vue. And I also know that <footer> doesn't require any JS, so it should be fine to do it this way this time. -->
+        <footer>
+            <p class="attribution">
+                Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+                Coded by <a href="#">Ben Boorstein</a>.
+            </p>
+        </footer>
+        <script src="https://unpkg.com/vue@next"></script>
+        <script src="./assets/js/app.js"></script>
+    </body>
+</html>
