@@ -1,11 +1,12 @@
 const App = {
     data() {
         return {
-            timePeriods: [
-                'Daily',
-                'Weekly',
-                'Monthly'
-            ],
+            selected: 'daily',
+            timePeriods: {
+                'Daily': 'Yesterday',
+                'Weekly': 'Last Week',
+                'Monthly': 'Last Month'
+            },
             cards: [
                 {
                     "title": "Work",
@@ -109,34 +110,9 @@ const App = {
                         }
                     }
                 }      
-            ],
-            prevPeriod: ''
+            ]
         }
-    },
-    methods: {
-        setCardText(event) {
-            if (event.target.textContent === this.timePeriods[0]) {
-                this.prevPeriod = 'Yesterday'
-                this.$refs.timePeriod[0].classList.remove('active') // this is Vue equivalent of: document.getElementById('Daily').classList.remove('active')
-            } else if (event.target.textContent === this.timePeriods[1]) {
-                this.prevPeriod = 'Last Week'
-                this.$refs.timePeriod[0].classList.remove('active') // this is Vue equivalent of: document.getElementById('Daily').classList.remove('active')
-            } else {
-                this.prevPeriod = 'Last Month'
-                this.$refs.timePeriod[0].classList.remove('active') // this is Vue equivalent of: document.getElementById('Daily').classList.remove('active')
-            }
-        }
-    },
-    mounted() {
-        this.prevPeriod = 'Yesterday'
-        this.$refs.timePeriod[0].classList.add('active') // this is Vue equivalent of: document.getElementById('Daily').classList.add('active')
     }
 }
 
 Vue.createApp(App).mount('#app')
-
-
-
-
-
-// QQQ: For "nine..." version and this version, the console error: Error: <svg> attribute height: Expected length, "auto".

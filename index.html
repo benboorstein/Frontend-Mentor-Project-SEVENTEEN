@@ -30,9 +30,8 @@
                         </li>        
                     </ul>
                     <ul class="header-list-2">
-                        <li v-for="timePeriod in timePeriods" :key="timePeriod">
-                            <button class="time-period-btn" :id="timePeriod" ref="timePeriod" @click="setCardText($event)">{{ timePeriod }}</button> <!-- QQQ: Is 'ref' (and the related JS) the best way to achieve what I'm trying to achieve? -->
-                            <!-- Regarding 'ref': https://vuejs.org/guide/essentials/template-refs.html, which includes "When 'ref' is used inside 'v-for', the resulting 'ref' value will be an array containing the corresponding elements". -->
+                        <li v-for="(val, prop) in timePeriods" :key="prop"> <!-- note that when using 'v-for' to loop through an object (as opposed to an array), it usually works well to set ':key' to the keys/properties of the object (as is done above) because each object key/prop is unique -->
+                            <button class="time-period-btn" :class="{ 'active': selected === prop.toLowerCase() }" @click="selected = prop.toLowerCase()">{{ prop }}</button> <!-- Explanation of the value that ':class' is set to in the above case: The 'active' class (styled in style.css) will be applied to the button element if the 'selected' Vue data property equals 'prop.toLowerCase()'. -->
                         </li>
                     </ul>
                 </header>
@@ -51,8 +50,8 @@
                             </li>
                         </ul>
                         <ul class="activity-list-ul-2">
-                            <li><span class="hours-current">???</span>hrs</li>
-                            <li><span class="previous-period">{{ prevPeriod }}</span> - <span class="hours-previous">???</span>hrs
+                            <li><span class="hours-current">{{ card.timeframes[selected].current }}</span>hrs</li>
+                            <li><span class="previous-period">{{ timePeriods[selected.slice(0, 1).toUpperCase() + selected.slice(1)] }}</span> - <span class="hours-previous">{{ card.timeframes[selected].previous }}</span>hrs
                             </li>
                         </ul>
                     </div>
