@@ -137,7 +137,7 @@ section .for-background-image {
     grid-column: 1 / 2;
 }
   
-#work .for-background-image {
+.work .for-background-image {
     background:
         url("../../assets/img/icon-work.svg")
             no-repeat
@@ -146,7 +146,7 @@ section .for-background-image {
             92% -15px / 112px 112px;
 }
 
-#play .for-background-image {
+.play .for-background-image {
     background:
         url("../../assets/img/icon-play.svg")
             no-repeat
@@ -155,7 +155,7 @@ section .for-background-image {
             90% -7px / 112px 113px;
 }
 
-#study .for-background-image {
+.study .for-background-image {
     background:
         url("../../assets/img/icon-study.svg")
             no-repeat
@@ -164,7 +164,7 @@ section .for-background-image {
             92% -9px / 112px 112px;
 }
 
-#exercise .for-background-image {
+.exercise .for-background-image {
     background:
         url("../../assets/img/icon-exercise.svg")
             no-repeat
@@ -173,7 +173,7 @@ section .for-background-image {
             92% -1px / 121.5px 82.5px;
 }
 
-#social .for-background-image {
+.social .for-background-image {
     background:
         url("../../assets/img/icon-social.svg")
             no-repeat
@@ -182,7 +182,7 @@ section .for-background-image {
             94% -22px / 109.5px 146px;
 }
   
-#self-care .for-background-image {
+.self-care .for-background-image {
     background:
         url("../../assets/img/icon-self-care.svg")
             no-repeat
@@ -349,27 +349,27 @@ footer
         font-size: 17px;
     }
   
-    #work {
+    .work {
         grid-column: 2 / 3;
     }
   
-    #play {
+    .play {
         grid-column: 3 / 4;
     }
   
-    #study {
+    .study {
         grid-column: 4 / 5;
     }
   
-    #exercise {
+    .exercise {
         grid-column: 2 / 3;
     }
   
-    #social {
+    .social {
         grid-column: 3 / 4;
     }
   
-    #self-care {
+    .self-care {
         grid-column: 4 / 5;
     }
   
@@ -377,7 +377,7 @@ footer
         border-radius: 15px;
     }
   
-    #work .for-background-image {
+    .work .for-background-image {
         background:
             url("../../assets/img/icon-work.svg")
                 no-repeat
@@ -386,7 +386,7 @@ footer
                 90% -15px / 97px 97px;
     }
   
-    #play .for-background-image {
+    .play .for-background-image {
         background:
             url("../../assets/img/icon-play.svg")
                 no-repeat
@@ -395,7 +395,7 @@ footer
                 88% -7px / 97px 98px;
     }
   
-    #study .for-background-image {
+    .study .for-background-image {
         background:
             url("../../assets/img/icon-study.svg")
                 no-repeat
@@ -404,7 +404,7 @@ footer
                 90% -9px / 97px 97px;
     }
   
-    #exercise .for-background-image {
+    .exercise .for-background-image {
         background:
             url("../../assets/img/icon-exercise.svg")
                 no-repeat
@@ -413,7 +413,7 @@ footer
                 89% -1px / 101.25px 68.75px;
     }
   
-    #social .for-background-image {
+    .social .for-background-image {
         background:
             url("../../assets/img/icon-social.svg")
                 no-repeat
@@ -422,7 +422,7 @@ footer
                 91% 0px / 90px 120px;
     }
   
-    #self-care .for-background-image {
+    .self-care .for-background-image {
         background:
             url("../../assets/img/icon-self-care.svg")
                 no-repeat

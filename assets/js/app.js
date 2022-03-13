@@ -7,111 +7,129 @@ const App = {
                 'Monthly'
             ],
             cards: [
-                { // QQQ: For the parts of the HTML where the text content is currently 'hrs cur' and 'hrs prev', I have to find a way to set the proper text content using the 'cards' object.
-                    cardTitle: 'Work',
-                    cardID: 'work',
-                    hoursCurrent: {
-                        daily: '5',
-                        weekly: '32',
-                        monthly: '103'
-                    },
-                    hoursPrevious: {
-                        daily: '7',
-                        weekly: '36',
-                        monthly: '128'
+                {
+                    "title": "Work",
+                    "timeframes": {
+                        "daily": {
+                            "current": 5,
+                            "previous": 7
+                        },
+                        "weekly": {
+                            "current": 32,
+                            "previous": 36
+                        },
+                        "monthly": {
+                            "current": 103,
+                            "previous": 128
+                        }
                     }
                 },
                 {
-                    cardTitle: 'Play',
-                    cardID: 'play',
-                    hoursCurrent: {
-                        daily: '1',
-                        weekly: '10',
-                        monthly: '23'
-                    },
-                    hoursPrevious: {
-                        daily: '2',
-                        weekly: '8',
-                        monthly: '29'
+                    "title": "Play",
+                    "timeframes": {
+                        "daily": {
+                            "current": 1,
+                            "previous": 2
+                        },
+                        "weekly": {
+                            "current": 10,
+                            "previous": 8
+                        },
+                        "monthly": {
+                            "current": 23,
+                            "previous": 29
+                        }
                     }
                 },
                 {
-                    cardTitle: 'Study',
-                    cardID: 'study',
-                    hoursCurrent: {
-                        daily: '0',
-                        weekly: '4',
-                        monthly: '13'
-                    },
-                    hoursPrevious: {
-                        daily: '1',
-                        weekly: '7',
-                        monthly: '19'
+                    "title": "Study",
+                    "timeframes": {
+                        "daily": {
+                            "current": 0,
+                            "previous": 1
+                        },
+                        "weekly": {
+                            "current": 4,
+                            "previous": 7
+                        },
+                        "monthly": {
+                            "current": 13,
+                            "previous": 19
+                        }
                     }
                 },
                 {
-                    cardTitle: 'Exercise',
-                    cardID: 'exercise',
-                    hoursCurrent: {
-                        daily: '1',
-                        weekly: '4',
-                        monthly: '11'
-                    },
-                    hoursPrevious: {
-                        daily: '1',
-                        weekly: '5',
-                        monthly: '18'
+                    "title": "Exercise",
+                    "timeframes": {
+                        "daily": {
+                            "current": 1,
+                            "previous": 1
+                        },
+                        "weekly": {
+                            "current": 4,
+                            "previous": 5
+                        },
+                        "monthly": {
+                            "current": 11,
+                            "previous": 18
+                        }
                     }
                 },
                 {
-                    cardTitle: 'Social',
-                    cardID: 'social',
-                    hoursCurrent: {
-                        daily: '1',
-                        weekly: '5',
-                        monthly: '21'
-                    },
-                    hoursPrevious: {
-                        daily: '3',
-                        weekly: '10',
-                        monthly: '23'
+                    "title": "Social",
+                    "timeframes": {
+                        "daily": {
+                            "current": 1,
+                            "previous": 3
+                        },
+                        "weekly": {
+                            "current": 5,
+                            "previous": 10
+                        },
+                        "monthly": {
+                            "current": 21,
+                            "previous": 23
+                        }
                     }
                 },
                 {
-                    cardTitle: 'Self Care',
-                    cardID: 'self-care',
-                    hoursCurrent: {
-                        daily: '0',
-                        weekly: '2',
-                        monthly: '7'
-                    },
-                    hoursPrevious: {
-                        daily: '1',
-                        weekly: '2',
-                        monthly: '11'
+                    "title": "Self Care",
+                    "timeframes": {
+                        "daily": {
+                            "current": 0,
+                            "previous": 1
+                        },
+                        "weekly": {
+                            "current": 2,
+                            "previous": 2
+                        },
+                        "monthly": {
+                            "current": 7,
+                            "previous": 11
+                        }
                     }
-                }
+                }      
             ],
             prevPeriod: ''
         }
     },
     methods: {
         setCardText(event) {
-            if (event.target.textContent === 'Daily') {
+            if (event.target.textContent === this.timePeriods[0]) {
                 this.prevPeriod = 'Yesterday'
-                document.getElementById('Daily').classList.remove('active')/////////////////////// QQQ: How to Vue-ize?
-            } else if (event.target.textContent === 'Weekly') {
+                this.$refs.timePeriod[0].classList.remove('active') // this is Vue equivalent of: document.getElementById('Daily').classList.remove('active')
+            } else if (event.target.textContent === this.timePeriods[1]) {
                 this.prevPeriod = 'Last Week'
-                document.getElementById('Daily').classList.remove('active')/////////////////////// QQQ: How to Vue-ize?
+                this.$refs.timePeriod[0].classList.remove('active') // this is Vue equivalent of: document.getElementById('Daily').classList.remove('active')
             } else {
                 this.prevPeriod = 'Last Month'
-                document.getElementById('Daily').classList.remove('active')/////////////////////// QQQ: How to Vue-ize?
+                this.$refs.timePeriod[0].classList.remove('active') // this is Vue equivalent of: document.getElementById('Daily').classList.remove('active')
             }
         }
     },
     mounted() {
-        document.getElementById('Daily').classList.add('active')/////////////////////// QQQ: How to Vue-ize?
         this.prevPeriod = 'Yesterday'
+        this.$refs.timePeriod[0].classList.add('active') // this is Vue equivalent of: document.getElementById('Daily').classList.add('active')
     }
 }
 

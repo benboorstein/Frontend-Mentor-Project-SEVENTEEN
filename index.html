@@ -31,15 +31,16 @@
                     </ul>
                     <ul class="header-list-2">
                         <li v-for="timePeriod in timePeriods" :key="timePeriod">
-                            <button class="time-period-btn" :id="timePeriod" @click="setCardText($event)">{{ timePeriod }}</button> <!-- QQQ: Do I need ':id="timePeriod"' here? -->
+                            <button class="time-period-btn" :id="timePeriod" ref="timePeriod" @click="setCardText($event)">{{ timePeriod }}</button> <!-- QQQ: Is 'ref' (and the related JS) the best way to achieve what I'm trying to achieve? -->
+                            <!-- Regarding 'ref': https://vuejs.org/guide/essentials/template-refs.html, which includes "When 'ref' is used inside 'v-for', the resulting 'ref' value will be an array containing the corresponding elements". -->
                         </li>
                     </ul>
                 </header>
-                <section class="card" :id="card.cardID" v-for="card in cards" :key="card.cardID">
+                <section class="card" :class="card.title.toLowerCase().replace(' ', '-')" v-for="card in cards" :key="card.title">
                     <div class="for-background-image"></div>
                     <div class="activity-list">
                         <ul class="activity-list-ul-1">
-                            <li>{{ card.cardTitle }}</li>
+                            <li>{{ card.title }}</li>
                             <li>
                                 <button>
                                     <!-- Why am I embedding this <svg> tag (taken from the svg image file and then edited in order to change size) instead of just using a regular <img> tag with 'assets/img/...'? So that I can access the svg's 'path' tag and change its 'fill' attribute in my CSS file. -->
@@ -50,8 +51,8 @@
                             </li>
                         </ul>
                         <ul class="activity-list-ul-2">
-                            <li><span class="hours-current">hrs cur</span>hrs</li>
-                            <li><span class="previous-period">{{ prevPeriod }}</span> - <span class="hours-previous">hrs prev</span>hrs
+                            <li><span class="hours-current">???</span>hrs</li>
+                            <li><span class="previous-period">{{ prevPeriod }}</span> - <span class="hours-previous">???</span>hrs
                             </li>
                         </ul>
                     </div>
