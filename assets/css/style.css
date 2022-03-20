@@ -29,6 +29,10 @@ body {
     padding: 115px 30px 0 30px;
     background-color: hsl(226, 43%, 10%);
 }
+
+[v-cloak] { /* for some reason this rule is not creating the desired effect in the wide viewport (even when I explicitly add this CSS rule to the CSS for the wide viewport, which I shouldn't even have to do) */
+    display: none;
+}
   
 /****************************************
 header
